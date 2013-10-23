@@ -8,5 +8,6 @@ filetype plugin on
 :set tabstop=3
 :set shiftwidth=3
 :set foldmethod=indent
+set encoding=utf-8
 
 :map <F2> :cd %:p:h<CR>
