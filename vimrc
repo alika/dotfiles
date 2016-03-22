@@ -2,21 +2,21 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 " " alternatively, pass a path where Vundle should install plugins
 " "let path = '~/some/path/here'
 " "call vundle#rc(path)
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between here and filetype plugin indent on.
 " scripts on GitHub repos
 Plugin 'tpope/vim-fugitive'
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'Shougo/unite.vim'
+"Plugin 'Shougo/unite.vim'
 "Plugin 'tpope/vim-rails.git'
 
 " The sparkup vim script is in a subdirectory of this repo called vim.
@@ -27,6 +27,12 @@ Plugin 'Shougo/unite.vim'
 Plugin 'L9'
 Plugin 'FuzzyFinder'
 Plugin 'The-NERD-tree'
+
+" Markdown
+"Plugin 'JamshedVesuna/vim-markdown-preview'
+"let vim_markdown_preview_github=1
+"let vim_markdown_preview_hotkey='<C-p>'
+
 
 Bundle 'rking/ag.vim'
 
@@ -50,7 +56,7 @@ filetype plugin indent on     " required
 " " NOTE: comments after Plugin commands are not allowed.
 " " Put your stuff after this line
 
-nnoremap <C-p> :Unite file_rec<CR>
+"nnoremap <C-p> :Unite file_rec<CR>
 
 :set nobackup
 :set noswapfile
