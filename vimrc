@@ -28,12 +28,15 @@ Plugin 'L9'
 Plugin 'FuzzyFinder'
 Plugin 'The-NERD-tree'
 
+"vim color solarized
+Bundle 'altercation/vim-colors-solarized'
+
 " Markdown
 "Plugin 'JamshedVesuna/vim-markdown-preview'
 "let vim_markdown_preview_github=1
 "let vim_markdown_preview_hotkey='<C-p>'
 
-
+"SilverSearcher 
 Bundle 'rking/ag.vim'
 
 " scripts not on GitHub
@@ -41,6 +44,7 @@ Bundle 'rking/ag.vim'
 "
 " git repos on your local machine (i.e. when working on your own plugin)
 "Plugin 'file:///home/gmarik/path/to/plugin'
+call vundle#end()
 
 filetype plugin indent on     " required
 " " To ignore plugin indent changes, instead use:
@@ -57,6 +61,12 @@ filetype plugin indent on     " required
 " " Put your stuff after this line
 
 "nnoremap <C-p> :Unite file_rec<CR>
+
+" solarized
+let g:solarized_termtrans=1 "use transparent bg
+syntax enable
+set background=dark
+colorscheme solarized
 
 :set nobackup
 :set noswapfile
