@@ -73,7 +73,8 @@ colorscheme solarized
 
 :set hlsearch
 :set nowrap
-:set tabstop=3
+:set tabstop=2 expandtab
+:retab
 :set shiftwidth=3
 " :set foldmethod=indent
 set encoding=utf-8
