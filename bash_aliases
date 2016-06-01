@@ -6,6 +6,7 @@ alias gd='git diff'
 alias gdc='git diff --cached'
 alias gpr='git pull --rebase'
 alias gl='git lg'
+alias glg='git lg --grep'
 alias gld='git lg -p'
 
 alias gsr='git svn rebase'
@@ -26,9 +27,21 @@ alias pscpu='ps auxf | sort -nr -k 3 | head -10'
 alias cpuinfo='lscpu'
 alias ff='findfiles.sh'
 
+# DOCKER
+alias dk='docker'
+# remove stopped containers
+alias dkrc="dk ps -a | grep Exited | awk '{print $1;}' | xargs --no-run-if-empty docker rm"
+# remove untagged images
+alias dkri='dk rmi $(docker images -q --filter "dangling=true")'
+# Show lasted created containers, including non-running
+alias dkps='dk ps -l -q'
+# Show images
+alias dki='dk images'
+
 alias dc='docker-compose'
 # Build your whole Docker Compose project
 alias dcb='dc build'
+alias dclge='dc logs -f | grep ERROR'
 
 # Start your Docker Compose project
 alias dcu='dc up -d'
@@ -41,17 +54,16 @@ alias dcps='dc ps'
 # Show running containers
 alias dcrun='dc run'
 
-# remove stopped containers
-alias drm="docker ps -a | grep Exited | awk '{print $1;}' | xargs --no-run-if-empty docker rm"
+# Show logs -follow
+alias dclog='dc logs -f'
+
 #alias drm="docker rm $(docker ps -a | grep Exited | awk '{print $1;}')"
 # or, to remove the stopped containers that were started by Docker Compose
 alias dcrm='dc rm'
-# remove untagged images
-alias drui='docker rmi $(docker images -q --filter "dangling=true")'
 # Better yet, remove dangling volumes before they're created by using -v
 alias dcrmv='dcr rm -v'
-# Show lasted created containers, including non-running
-alias dps='docker ps -l -q'
+# Docker Check Env Vars
+alias dcev='env | grep DOCKER'
 
 alias dm='docker-machine'
 
