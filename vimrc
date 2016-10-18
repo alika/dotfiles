@@ -15,6 +15,7 @@ Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between here and filetype plugin indent on.
 " scripts on GitHub repos
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-obsession'
 Plugin 'Lokaltog/vim-easymotion'
 "Plugin 'Shougo/unite.vim'
 "Plugin 'tpope/vim-rails.git'
