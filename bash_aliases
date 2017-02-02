@@ -32,7 +32,7 @@ alias dk='docker'
 # remove stopped containers
 alias dkrc="dk ps -a | grep Exited | awk '{print $1;}' | xargs --no-run-if-empty docker rm"
 # remove untagged images
-alias dkri='dk rmi $(docker images -q --filter "dangling=true")'
+alias dkri='docker images -q --filter "dangling=true" | xargs --no-run-if-empty docker rmi'
 # Show lasted created containers, including non-running
 alias dkps='dk ps -l -q'
 # Show images
@@ -78,8 +78,7 @@ alias dml='eval $(dm env -u)'
 
 alias vij='vim -p `find src -name *.java`'
 
-alias =clear
-
+#alias =clear -> ~/.inputrc
 
 # Geeknote (Evernote CLI)
 alias gn='geeknote'
@@ -87,5 +86,18 @@ alias gnf='gn find --search --content-search '
 alias gns='gn show '
 alias gne='gn edit '
 alias gnc='gn create  '
-alias gne-wl='gne --note $GN_WORK_LOG_GUID --content "WRITE"'
-alias gne-r='gne --note $GN_REMINDERS_GUID --content "WRITE"'
+alias gns-db='gnsync -p ~/Documents/work/daybook/ -m "*.md" -l ~/logs/gn-daybook.log --format markdown -t && tail ~/logs/gn-daybook.log'
+#alias gne-wl='gne --note $GN_WORK_LOG_GUID --content "WRITE"'
+gne-wl-cmd () {
+  daybook_dir=~/Documents/work/daybook
+  year_week=`date +%Y-W%V`
+  $(echo vi ${daybook_dir}/${year_week}.md)
+}
+alias gne-wl=gne-wl-cmd
+#alias gne-r='gne --note $GN_REMINDERS_GUID --content "WRITE"'
+alias gne-r='vi ~/Documents/work/daybook/reminders.md'
+
+alias spd='speedtest-cli --simple'
+
+#atsid/devops
+alias dc-devops='dc -f docker-compose.devops.dev.yml run --rm devops bash'
