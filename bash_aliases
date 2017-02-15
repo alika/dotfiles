@@ -27,7 +27,9 @@ alias pscpu='ps auxf | sort -nr -k 3 | head -10'
 alias cpuinfo='lscpu'
 alias ff='findfiles.sh'
 
-# DOCKER
+## DOCKER
+####################
+
 alias dk='docker'
 # remove stopped containers
 alias dkrc="dk ps -a | grep Exited | awk '{print $1;}' | xargs --no-run-if-empty docker rm"
@@ -76,6 +78,8 @@ alias dmr=dm-env-remote
 # unset docker-machine for native access
 alias dml='eval $(dm env -u)'
 
+## TOOLS
+####################
 alias vij='vim -p `find src -name *.java`'
 
 #alias =clear -> ~/.inputrc
@@ -86,7 +90,7 @@ alias gnf='gn find --search --content-search '
 alias gns='gn show '
 alias gne='gn edit '
 alias gnc='gn create  '
-alias gns-db='gnsync -p ~/Documents/work/daybook/ -m "*.md" -l ~/logs/gn-daybook.log --format markdown -t && tail ~/logs/gn-daybook.log'
+alias gns-db='echo "syncing daybook" && gnsync -p ~/Documents/work/daybook/ -m "*.md" -l ~/logs/gn-daybook.log --format markdown -n daybook -t && tail ~/logs/gn-daybook.log'
 #alias gne-wl='gne --note $GN_WORK_LOG_GUID --content "WRITE"'
 gne-wl-cmd () {
   daybook_dir=~/Documents/work/daybook
@@ -101,3 +105,13 @@ alias spd='speedtest-cli --simple'
 
 #atsid/devops
 alias dc-devops='dc -f docker-compose.devops.dev.yml run --rm devops bash'
+
+## ENTERTAINMENT
+####################
+
+stream_dance() {
+  stream_url=http://www.c895.org/streams/c895sc128.pls
+  vlc $stream_url &
+}
+alias c895=stream_dance
+alias dance=c895
