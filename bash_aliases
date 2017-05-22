@@ -84,22 +84,25 @@ alias vij='vim -p `find src -name *.java`'
 
 #alias =clear -> ~/.inputrc
 
-# Geeknote (Evernote CLI)
+# note-sys (gdrive backed - https://github.com/prasmussen/gdrive)
+alias nt-sync='echo "syncing daybook" && gdrive sync upload --keep-local ~/Documents/work/daybook/ 0B2jDS3r8-OJpNmNPU2I4eGlLV1E'
+nt-wl-cmd () {
+  daybook_dir=~/Documents/work/daybook
+  year_week=`date +%Y-W%V`
+  $(echo vi ${daybook_dir}/${year_week}.md)
+}
+alias nt-wl=nt-wl-cmd
+alias nt-r='vi ~/Documents/work/daybook/reminders.md'
+
+# previous note-sys (evernote backed - Geeknote cli)
 alias gn='geeknote'
 alias gnf='gn find --search --content-search '
 alias gns='gn show '
 alias gne='gn edit '
 alias gnc='gn create  '
-alias gns-db='echo "syncing daybook" && gnsync -p ~/Documents/work/daybook/ -m "*.md" -l ~/logs/gn-daybook.log --format markdown -n daybook -t && tail ~/logs/gn-daybook.log'
+#alias gns-db='echo "syncing daybook" && gnsync -p ~/Documents/work/daybook/ -m "*.*" -l ~/logs/gn-daybook.log --format markdown -n daybook -t && tail ~/logs/gn-daybook.log'
 #alias gne-wl='gne --note $GN_WORK_LOG_GUID --content "WRITE"'
-gne-wl-cmd () {
-  daybook_dir=~/Documents/work/daybook
-  year_week=`date +%Y-W%V`
-  $(echo vi ${daybook_dir}/${year_week}.md)
-}
-alias gne-wl=gne-wl-cmd
 #alias gne-r='gne --note $GN_REMINDERS_GUID --content "WRITE"'
-alias gne-r='vi ~/Documents/work/daybook/reminders.md'
 
 alias spd='speedtest-cli --simple'
 
