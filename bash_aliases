@@ -112,9 +112,26 @@ alias dc-devops='dc -f docker-compose.devops.dev.yml run --rm devops bash'
 ## ENTERTAINMENT
 ####################
 
-stream_dance() {
-  stream_url=http://www.c895.org/streams/c895sc128.pls
+stream_edm() {
+  case "$1" in
+     'dance')
+        stream_url=http://www.c895.org/streams/c895sc128.pls
+        ;;
+     'party')
+        stream_url=http://www.partyviberadio.com:8010/listen.pls
+        ;;
+     'trance')
+        stream_url=http://uk3.internet-radio.com:8357/listen.pls
+        ;;
+     'heavy')
+        stream_url=http://192.99.62.212:9408/listen.pls
+        ;;
+  esac
   vlc $stream_url &
 }
-alias c895=stream_dance
-alias dance=c895
+
+alias c895='stream_edm dance'
+alias dance='stream_edm dance'
+alias party='stream_edm party'
+alias trance='stream_edm trance'
+alias heavy='stream_edm heavy'
