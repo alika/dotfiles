@@ -85,7 +85,8 @@ alias vij='vim -p `find src -name *.java`'
 #alias =clear -> ~/.inputrc
 
 # note-sys (gdrive backed - https://github.com/prasmussen/gdrive)
-alias nt-sync='echo "syncing daybook" && gdrive sync upload --keep-local ~/Documents/work/daybook/ 0B2jDS3r8-OJpNmNPU2I4eGlLV1E'
+alias nt-sync-up='echo "syncing up daybook" && gdrive sync upload --keep-local ~/Documents/work/daybook/ 0B2jDS3r8-OJpNmNPU2I4eGlLV1E'
+alias nt-sync-dw='echo "syncing down daybook" && gdrive sync download --keep-remote 0B2jDS3r8-OJpNmNPU2I4eGlLV1E ~/Documents/work/daybook/'
 nt-wl-cmd () {
   daybook_dir=~/Documents/work/daybook
   year_week=`date +%Y-W%V`
