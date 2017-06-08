@@ -54,7 +54,8 @@ alias dcs='dc stop'
 # Show running containers
 alias dcps='dc ps'
 # Show running containers
-alias dcrun='dc run'
+alias dcr='dc run --rm'
+alias rundmc='dcr'
 
 # Show logs -follow
 alias dclog='dc logs -f'
