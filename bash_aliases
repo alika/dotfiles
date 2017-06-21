@@ -91,7 +91,12 @@ alias nt-sync-dw='echo "syncing down daybook" && gdrive sync download --keep-rem
 nt-wl-cmd () {
   daybook_dir=~/Documents/work/daybook
   year_week=`date +%Y-W%V`
-  $(echo vi ${daybook_dir}/${year_week}.md)
+  current_weeklog=${daybook_dir}/${year_week}.md
+  template_weeklog=${daybook_dir}/weeklog.template
+  if [ ! -f "${current_weeklog}" ]; then
+    cp ${template_weeklog} ${current_weeklog}
+  fi
+  $(echo vi ${current_weeklog})
 }
 alias nt-wl=nt-wl-cmd
 alias nt-r='vi ~/Documents/work/daybook/reminders.md'
