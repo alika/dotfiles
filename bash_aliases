@@ -1,3 +1,5 @@
+alias ll='ls -Gflash'
+
 alias gst='git status'
 alias ga='git add'
 alias gca='git commit -am'
