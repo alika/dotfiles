@@ -100,6 +100,8 @@ nt-wl-cmd () {
   fi
   $(echo vi ${current_weeklog})
 }
+alias nsu=nt-sync-up
+alias nsd=nt-sync-dw
 alias nt-wl=nt-wl-cmd
 alias nt-r='vi ~/Documents/work/daybook/reminders.md'
 
