@@ -29,14 +29,20 @@ alias pscpu='ps auxf | sort -nr -k 3 | head -10'
 alias cpuinfo='lscpu'
 alias ff='findfiles.sh'
 
+## K8S
+alias kc='kubectl'
+alias kcg='kubectl get'
+alias kcd='kubectl describe'
+alias kce='kubectl exec'
+
 ## DOCKER
 ####################
 
 alias dk='docker'
 # remove stopped containers
-alias dkrc="dk ps -a | grep Exited | awk '{print $1;}' | xargs --no-run-if-empty docker rm"
+alias dkrc="dk ps -a | grep Exited | awk '{print $1;}' | xargs docker rm"
 # remove untagged images
-alias dkri='docker images -q --filter "dangling=true" | xargs --no-run-if-empty docker rmi'
+alias dkri='docker images -q --filter "dangling=true" | xargs docker rmi'
 # Show lasted created containers, including non-running
 alias dkps='dk ps -l -q'
 # Show images
@@ -89,7 +95,7 @@ alias vij='vim -p `find src -name *.java`'
 
 # note-sys (gdrive backed - https://github.com/prasmussen/gdrive)
 alias nt-sync-up='echo "syncing up daybook" && gdrive sync upload --keep-local ~/Documents/work/daybook/ 0B2jDS3r8-OJpNmNPU2I4eGlLV1E'
-alias nt-sync-dw='echo "syncing down daybook" && gdrive sync download --keep-remote 0B2jDS3r8-OJpNmNPU2I4eGlLV1E ~/Documents/work/daybook/'
+alias nt-sync-dw='echo "syncing down daybook" && gdrive sync download 0B2jDS3r8-OJpNmNPU2I4eGlLV1E ~/Documents/work/daybook/'
 nt-wl-cmd () {
   daybook_dir=~/Documents/work/daybook
   year_week=`date +%Y-W%V`
@@ -132,7 +138,7 @@ stream_edm() {
         stream_url=http://www.partyviberadio.com:8010/listen.pls
         ;;
      'trance')
-        stream_url=http://uk3.internet-radio.com:8357/listen.pls
+        stream_url=http://www.1mix.co.uk/trance/listenh.pls
         ;;
      'heavy')
         stream_url=http://192.99.62.212:9408/listen.pls

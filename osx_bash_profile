@@ -1,0 +1,60 @@
+# unlimited bash history
+export HISTSIZE= 
+export HISTFILESIZE=
+
+# avoid duplicates
+export HISTCONTROL=ignoredups:erasedups  
+
+# when the shell exits, append to the history file instead of overwriting it
+shopt -s histappend
+
+# After each command, append to the history file and reread it
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+
+# vi mode
+set -o vi
+
+# aliases
+if [ -f ~/.bash_aliases ]; then
+  . ~/.bash_aliases
+fi
+
+# git (pretty log)
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+# git console prompt
+export GIT_PS1_SHOWDIRTYSTATE=true      # show unstaged (*) and staged (+)
+export GIT_PS1_SHOWUNTRACKEDFILES=true  # show untracked (%)
+#export PS1='\u@\h:\w\$(__git_ps1)\$ '   # eg: user@host:dir (branch*+%)$ type here
+
+parse_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+export PS1="\u@\h-\t \[\033[32m\]\W\[\033[33m\]\$(parse_git_branch)\[\033[00m\]$ "
+
+# git completion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+
+# go lang
+export GOPATH=$HOME/golang
+export GOROOT=/usr/local/opt/go/libexec
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOPATH
+export PATH=$PATH:$GOROOT/bin
+export PATH=$PATH:$GOPATH/bin
+
+# PATH
+export PATH=$HOME/bin:$PATH
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/alika/tools/google-cloud-sdk/path.bash.inc' ]; then source '/Users/alika/tools/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/alika/tools/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/alika/tools/google-cloud-sdk/completion.bash.inc'; fi
+
+# PROJECTS
+
+
+
