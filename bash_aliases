@@ -1,3 +1,4 @@
+alias srg='echo -n "¯\_(ツ)_/¯"'
 alias ll='ls -Gflash'
 
 alias gst='git status'
@@ -31,16 +32,19 @@ alias ff='findfiles.sh'
 
 ## K8S
 alias kc='kubectl'
-alias kcg='kubectl get'
-alias kcd='kubectl describe'
-alias kce='kubectl exec'
+alias kcg='kc get'
+alias kcd='kc describe'
+alias kce='kc exec'
+alias kcc='kc config'
+alias kcpf='kc port-forward'
+alias kcl='kc logs'
 
 ## DOCKER
 ####################
 
 alias dk='docker'
 # remove stopped containers
-alias dkrc="dk ps -a | grep Exited | awk '{print $1;}' | xargs docker rm"
+alias dkrc="dk ps -a | grep Exited | cut -d ' ' -f1 | xargs docker rm"
 # remove untagged images
 alias dkri='docker images -q --filter "dangling=true" | xargs docker rmi'
 # Show lasted created containers, including non-running
