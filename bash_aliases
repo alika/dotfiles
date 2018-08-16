@@ -1,6 +1,8 @@
-alias srg='echo -n "¯\_(ツ)_/¯"'
+alias shrug='echo -n "¯\_(ツ)_/¯"'
 alias ll='ls -Gflash'
 
+alias gi='git info'
+alias gih='gi | head -n 20'
 alias gst='git status'
 alias ga='git add'
 alias gca='git commit -am'
@@ -33,11 +35,24 @@ alias ff='findfiles.sh'
 ## K8S
 alias kc='kubectl'
 alias kcg='kc get'
+alias kcg-alll='kcg all --all-namespaces'
 alias kcd='kc describe'
 alias kce='kc exec'
 alias kcc='kc config'
 alias kcpf='kc port-forward'
 alias kcl='kc logs'
+alias kcc='kc cluster-info'
+alias mk='minikube'
+
+alias ekc='kubectl --insecure-skip-tls-verify=true'
+
+kc-export-all () {
+  for n in $(kubectl get -o=name pvc,configmap,ingress,service,secret,deployment,statefulset,hpa,job,cronjob | grep -v 'secrets/default-token')
+  do
+    kubectl get -o=yaml --export $n > $(dirname $n)_$(basename $n).yaml
+  done
+}
+alias kc-export=kc-export-all
 
 ## DOCKER
 ####################

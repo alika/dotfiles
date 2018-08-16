@@ -1,4 +1,5 @@
 set nocompatible              " be iMproved, required
+set binary noeol
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
