@@ -13,6 +13,7 @@ alias gpr='git pull --rebase'
 alias gl='git lg'
 alias glg='git lg --grep'
 alias gld='git lg -p'
+alias g-sync-up='git checkout master && git fetch upstream && git merge --ff-only upstream/master'
 
 alias gsr='git svn rebase'
 alias gsc='git svn dcommit'
@@ -35,7 +36,7 @@ alias ff='findfiles.sh'
 ## K8S
 alias kc='kubectl'
 alias kcg='kc get'
-alias kcg-alll='kcg all --all-namespaces'
+alias kall='kcg all --all-namespaces'
 alias kcd='kc describe'
 alias kce='kc exec'
 alias kcc='kc config'
@@ -144,6 +145,8 @@ alias spd='speedtest-cli --simple'
 
 #atsid/devops
 alias dc-devops='dc -f docker-compose.devops.dev.yml run --rm devops bash'
+
+#alias helmfile='dk run quay.io/roboll/helmfile:v0.33.3'
 
 ## ENTERTAINMENT
 ####################
